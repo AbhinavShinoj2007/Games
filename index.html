@@ -2,22 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Mini Game Arcade</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shinoj's collection of quick, fun browser games.">
+  <title>Shinoj's Game Arcade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>🎮 Welcome to Shinoj's Game Arcade 🎮</h1>
-  <p>Select a game to play:</p>
+  <div class="glow glow-one"></div>
+  <div class="glow glow-two"></div>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Shinoj's Game Arcade home">
+      <span class="brand-mark">✦</span>
+      <span>GAME<span class="brand-accent">ARCADE</span></span>
+    </a>
+    <a class="github-link" href="https://github.com/AbhinavShinoj2007/Games" target="_blank" rel="noreferrer">View on GitHub ↗</a>
+  </header>
 
-  <div class="menu">
-    <a href="snake/index.html">🐍 Snake Game</a>
-    <a href="tic-tac-toe/index.html">❌⭕ Tic-Tac-Toe</a>
-    <a href="breakout/index.html">🧱 Breakout</a>
-    <a href="memory-match/index.html">🃏 Memory Match</a>
-    <a href="sudoku/index.html">🔢 Sudoku</a>
-    <a href="minesweeper/index.html">💣 Minesweeper</a>
-    <a href="math-challenge/index.html">➕ Math Challenge</a>
-    <a href="sorting-visualizer/index.html">📊 Sorting Visualizer</a>
-  </div>
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">WELCOME, PLAYER <span>///</span></p>
+        <h1>Your next<br><span>high score</span><br>starts here.</h1>
+        <p class="intro">A hand-picked collection of quick games, brain teasers, and challenges. Pick a card and start playing.</p>
+        <a class="primary-button" href="#games">Explore games <span>↓</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="arcade-card"><span class="pixel-star">✦</span><strong>PLAY</strong><small>ALL DAY</small></div>
+      </div>
+    </section>
+
+    <section class="toolbar" id="games">
+      <div><p class="eyebrow">THE COLLECTION</p><h2>Choose your game</h2></div>
+      <label class="search"><span>⌕</span><input id="search" type="search" placeholder="Search games..." aria-label="Search games"></label>
+    </section>
+
+    <section class="game-grid" id="game-grid">
+      <a class="game-card featured" data-name="snake" href="snake/index.html"><span class="number">01</span><span class="game-icon">🐍</span><span class="tag">ARCADE</span><h3>Snake</h3><p>Eat, grow, and beat your best score.</p><span class="play">Play now <b>↗</b></span></a>
+      <a class="game-card" data-name="tic tac toe" href="tic-tac-toe/index.html"><span class="number">02</span><span class="game-icon">✕<i>◯</i></span><span class="tag">STRATEGY</span><h3>Tic-Tac-Toe</h3><p>The classic battle of Xs and Os.</p><span class="play">Play now <b>↗</b></span></a>
+      <a class="game-card" data-name="breakout" href="breakout/index.html"><span class="number">03</span><span class="game-icon">▤</span><span class="tag">ARCADE</span><h3>Breakout</h3><p>Smash every brick. Keep the ball alive.</p><span class="play">Play now <b>↗</b></span></a>
+      <a class="game-card" data-name="memory match" href="memory-match/index.html"><span class="number">04</span><span class="game-icon">♧</span><span class="tag">PUZZLE</span><h3>Memory Match</h3><p>Flip cards and find every matching pair.</p><span class="play">Play now <b>↗</b></span></a>
+      <a class="game-card" data-name="sudoku" href="sudoku/index.html"><span class="number">05</span><span class="game-icon">#</span><span class="tag">BRAIN</span><h3>Sudoku</h3><p>Fill the grid. One number at a time.</p><span class="play">Play now <b>↗</b></span></a>
+      <a class="game-card" data-name="minesweeper" href="minesweeper/index.html"><span class="number">06</span><span class="game-icon">✹</span><span class="tag">BRAIN</span><h3>Minesweeper</h3><p>Clear the field without hitting a mine.</p><span class="play">Play now <b>↗</b></span></a>
+      <a class="game-card" data-name="math challenge" href="math-challenge/index.html"><span class="number">07</span><span class="game-icon">＋</span><span class="tag">CHALLENGE</span><h3>Math Challenge</h3><p>How fast can you solve these problems?</p><span class="play">Play now <b>↗</b></span></a>
+      <a class="game-card" data-name="sorting visualizer" href="sorting-visualizer/index.html"><span class="number">08</span><span class="game-icon">▥</span><span class="tag">LEARN</span><h3>Sorting Visualizer</h3><p>Watch algorithms bring order to chaos.</p><span class="play">Play now <b>↗</b></span></a>
+    </section>
+    <p class="empty" id="empty">No games found. Try another search.</p>
+  </main>
+  <footer><span>© 2026 SHINOJ'S GAME ARCADE</span><span>BUILT FOR FUN <b>♥</b></span></footer>
+  <script src="app.js"></script>
 </body>
 </html>

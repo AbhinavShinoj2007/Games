@@ -1,32 +1,15 @@
-body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  background: #111;
-  color: #fff;
-}
-
-h1 {
-  margin-top: 20px;
-}
-
-.menu {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 30px;
-}
-
-.menu a {
-  display: block;
-  margin: 10px;
-  padding: 15px 25px;
-  background: #333;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: background 0.3s;
-}
-
-.menu a:hover {
-  background: #555;
-}
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+:root { --bg:#111116; --panel:#19191f; --line:#303038; --text:#f4f1eb; --muted:#97959d; --lime:#c9f66b; --purple:#9078ff; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; color:var(--text); background:var(--bg); font-family:'DM Sans',sans-serif; overflow-x:hidden; }
+body:before { content:''; position:fixed; inset:0; opacity:.06; pointer-events:none; background-image:radial-gradient(#fff 1px,transparent 1px); background-size:5px 5px; }
+.glow { position:fixed; border-radius:50%; filter:blur(90px); opacity:.15; pointer-events:none; width:360px; height:360px; }
+.glow-one { background:var(--purple); top:8%; right:-160px; }.glow-two { background:var(--lime); bottom:-170px; left:-100px; }
+.topbar, main, footer { max-width:1160px; margin:auto; }.topbar { height:82px; display:flex; align-items:center; justify-content:space-between; padding:0 28px; border-bottom:1px solid var(--line); }
+.brand { color:var(--text); text-decoration:none; font:700 18px 'Space Grotesk'; letter-spacing:1px; }.brand-mark { color:var(--lime); font-size:26px; vertical-align:-2px; margin-right:8px; }.brand-accent { color:var(--lime); }.github-link { color:var(--muted); text-decoration:none; font-size:13px; }.github-link:hover { color:var(--lime); }
+.hero { min-height:470px; padding:85px 28px 55px; display:flex; justify-content:space-between; align-items:center; }.hero-copy { max-width:570px; }.eyebrow { color:var(--lime); font:700 11px 'Space Grotesk'; letter-spacing:2px; margin:0 0 20px; }.eyebrow span { color:var(--muted); margin-left:10px; }h1 { font:700 clamp(52px,8vw,88px)/.92 'Space Grotesk'; letter-spacing:-5px; margin:0 0 28px; }h1 span { color:var(--lime); }.intro { color:var(--muted); font-size:16px; line-height:1.65; max-width:410px; margin-bottom:30px; }.primary-button { display:inline-flex; gap:35px; align-items:center; background:var(--lime); color:#151515; text-decoration:none; font-weight:700; padding:15px 19px; border-radius:3px; }.primary-button span { font-size:22px; }.primary-button:hover { background:#e0ffa1; transform:translateY(-2px); }
+.hero-art { width:290px; height:290px; position:relative; display:grid; place-items:center; }.orbit { position:absolute; border:1px solid #3d374e; border-radius:50%; transform:rotate(-25deg); }.orbit-one { width:270px; height:125px; }.orbit-two { width:185px; height:280px; }.arcade-card { width:170px; height:205px; background:var(--purple); color:#17121e; transform:rotate(8deg); display:flex; flex-direction:column; align-items:center; justify-content:center; box-shadow:12px 15px 0 #262134; }.pixel-star { font-size:58px; line-height:1; }.arcade-card strong { font:700 30px 'Space Grotesk'; letter-spacing:3px; }.arcade-card small { letter-spacing:4px; }
+.toolbar { padding:40px 28px 25px; display:flex; justify-content:space-between; align-items:end; border-top:1px solid var(--line); }h2 { font:600 32px 'Space Grotesk'; margin:0; }.toolbar .eyebrow { margin-bottom:12px; }.search { border:1px solid var(--line); color:var(--muted); padding:11px 14px; display:flex; gap:8px; width:220px; }.search input { background:none; border:0; outline:0; color:var(--text); width:100%; font:14px 'DM Sans'; }.game-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; padding:0 28px 70px; }.game-card { min-height:275px; color:var(--text); background:var(--panel); border:1px solid var(--line); padding:22px; text-decoration:none; position:relative; transition:.25s; }.game-card:hover { border-color:var(--lime); transform:translateY(-5px); }.game-card.featured { background:var(--purple); color:#18131f; border-color:var(--purple); }.number { position:absolute; top:20px; right:20px; color:var(--muted); font:12px 'Space Grotesk'; }.featured .number { color:#30244f; }.game-icon { display:block; font:52px 'Space Grotesk'; margin:17px 0 25px; }.game-icon i { font-style:normal; font-size:32px; }.tag { color:var(--lime); font:700 10px 'Space Grotesk'; letter-spacing:1.5px; }.featured .tag { color:#30244f; }h3 { font:600 22px 'Space Grotesk'; margin:8px 0 8px; }.game-card p { color:var(--muted); font-size:13px; line-height:1.5; margin:0; }.featured p { color:#45356e; }.play { position:absolute; bottom:20px; font-size:12px; font-weight:700; }.play b { color:var(--lime); font-size:17px; margin-left:5px; }.featured .play b { color:#30244f; }.empty { display:none; text-align:center; color:var(--muted); padding:0 0 70px; }.empty.visible { display:block; }footer { border-top:1px solid var(--line); padding:25px 28px; display:flex; justify-content:space-between; color:#68676e; font:10px 'Space Grotesk'; letter-spacing:1.5px; }footer b { color:var(--lime); }
+@media (max-width:780px) { .hero { padding-top:55px; }.hero-art { display:none; }.game-grid { grid-template-columns:repeat(2,1fr); }.toolbar { align-items:start; gap:20px; flex-direction:column; }.search { width:100%; } }
+@media (max-width:480px) { .topbar { padding:0 18px; }.github-link { display:none; }.hero,.toolbar { padding-left:18px; padding-right:18px; }h1 { font-size:56px; }.game-grid { grid-template-columns:1fr; padding-left:18px; padding-right:18px; }footer { padding:25px 18px; gap:15px; flex-direction:column; } }
