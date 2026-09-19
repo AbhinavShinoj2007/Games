@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Flappy Bird</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="flappy.css">
 </head>
 <body>
@@ -13,7 +14,16 @@
     <a href="../index.html">← Back to Arcade</a>
   </header>
 
+  <!-- HUD -->
+  <div id="hud">
+    <span id="score">Score: 0</span>
+    <span id="highScore">High Score: 0</span>
+  </div>
+
+  <!-- Game canvas -->
   <canvas id="gameCanvas" width="400" height="600"></canvas>
+
+  <!-- Start/Restart button -->
   <button id="startBtn">Start Game</button>
 
   <script src="script.js"></script>
