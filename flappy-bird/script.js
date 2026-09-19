@@ -1,6 +1,8 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 const startBtn = document.getElementById("startBtn");
+const scoreDisplay = document.getElementById("score");
+const highScoreDisplay = document.getElementById("highScore");
 
 // Bird properties
 let birdX = 50, birdY = 150;
@@ -35,6 +37,7 @@ function startGame() {
   frame = 0;
   gameRunning = true;
   startBtn.style.display = "none";
+  updateHUD();
   update();
 }
 
@@ -74,6 +77,7 @@ function update() {
     // Score when bird passes pipe
     if (pipe.x + pipeWidth === birdX) {
       score++;
+      updateHUD();
     }
   });
 
@@ -85,12 +89,6 @@ function update() {
     gameOver();
   }
 
-  // Score display
-  ctx.fillStyle = "black";
-  ctx.font = "20px Arial";
-  ctx.fillText("Score: " + score, 10, 20);
-  ctx.fillText("High Score: " + highScore, 10, 45);
-
   frame++;
   requestAnimationFrame(update);
 }
@@ -101,4 +99,23 @@ function gameOver() {
   // Update high score
   if (score > highScore) {
     highScore = score;
-    localStorage.setItem("
+    localStorage.setItem("flappyHighScore", highScore);
+    alert("🎉 New High Score: " + highScore);
+  } else {
+    alert("Game Over! Score: " + score);
+  }
+
+  updateHUD();
+  startBtn.style.display = "inline-block";
+}
+
+function updateHUD() {
+  scoreDisplay.textContent = "Score: " + score;
+  highScoreDisplay.textContent = "High Score: " + highScore;
+}
+
+// Attach start button
+startBtn.addEventListener("click", startGame);
+
+// Initialize HUD
+updateHUD();
