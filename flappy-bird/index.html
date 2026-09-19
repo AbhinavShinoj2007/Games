@@ -3,46 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#141a35">
-  <title>Skybound | Flappy Bird</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <title>Flappy Bird | Skybound</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
-  <div class="sky sky-one"></div><div class="sky sky-two"></div>
   <main class="page">
-    <header class="topbar">
-      <a class="back-link" href="../index.html">← Arcade</a>
-      <div class="logo"><span>✦</span> SKYBOUND</div>
-      <span class="game-number">GAME 09</span>
+    <header>
+      <a href="../index.html">← Back to Arcade</a>
+      <h1>🐦 Flappy Bird</h1>
+      <p>Tap the game, click, or press Space to flap</p>
     </header>
-    <section class="hero">
-      <div class="copy">
-        <p class="eyebrow">ENDLESS ARCADE</p>
-        <h1>Find your<br><em>sky.</em></h1>
-        <p class="tagline">Tap to fly. Dodge the pipes.<br>How far can you go?</p>
-        <div class="tips"><span>SPACE</span> or <span>TAP</span> to flap</div>
-      </div>
-      <div class="game-wrap">
-        <div class="score-row">
-          <div><small>SCORE</small><strong id="score">0</strong></div>
-          <div><small>BEST</small><strong id="highScore">0</strong></div>
-        </div>
-        <div class="canvas-frame">
-          <canvas id="gameCanvas" width="560" height="600" aria-label="Flappy Bird game"></canvas>
-          <div class="overlay" id="overlay">
-            <span class="bird-badge">🐦</span>
-            <h2 id="overlayTitle">READY TO FLY?</h2>
-            <p id="overlayText">Tap, click, or press Space to begin</p>
-          </div>
-        </div>
-        <button id="startBtn" class="start-button">Start game <b>→</b></button>
-      </div>
+    <section class="scoreboard" aria-label="Scoreboard">
+      <div><span>Score</span><strong id="score">0</strong></div>
+      <div><span>Best</span><strong id="highScore">0</strong></div>
+      <div><span>Last</span><strong id="lastScore">0</strong></div>
     </section>
-    <footer><span>BUILT FOR HIGH SCORES</span><span>↗ <a href="../index.html">MORE GAMES</a></span></footer>
+    <section class="game-card">
+      <div class="canvas-wrap">
+        <canvas id="gameCanvas" width="640" height="600"></canvas>
+        <div id="message" class="message"><b id="messageTitle">READY?</b><span id="messageText">Press Start or Space to begin</span></div>
+      </div>
+      <button id="startBtn">Start Game</button>
+    </section>
   </main>
-  <script src="script.js"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>
