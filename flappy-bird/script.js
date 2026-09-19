@@ -1,34 +1,46 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
+const startBtn = document.getElementById("startBtn");
 
 // Bird properties
-let birdX = 50;
-let birdY = 150;
-let birdWidth = 30;
-let birdHeight = 30;
-let gravity = 0.5;
-let lift = -10;
-let velocity = 0;
+let birdX = 50, birdY = 150;
+let birdWidth = 30, birdHeight = 30;
+let gravity = 0.6, lift = -10, velocity = 0;
 
 // Pipes
 let pipes = [];
-let pipeWidth = 60;
-let pipeGap = 140;
-let frame = 0;
-let score = 0;
+let pipeWidth = 60, pipeGap = 140;
+let frame = 0, score = 0;
+let highScore = localStorage.getItem("flappyHighScore") || 0;
+let gameRunning = false;
 
 // Controls
 document.addEventListener("keydown", e => {
-  if (e.code === "Space") flap();
+  if (e.code === "Space" && gameRunning) flap();
 });
-document.addEventListener("click", flap);
+document.addEventListener("click", () => {
+  if (gameRunning) flap();
+});
 
 function flap() {
   velocity = lift;
 }
 
-// Game loop
+function startGame() {
+  // Reset everything
+  birdY = 150;
+  velocity = 0;
+  pipes = [];
+  score = 0;
+  frame = 0;
+  gameRunning = true;
+  startBtn.style.display = "none";
+  update();
+}
+
 function update() {
+  if (!gameRunning) return;
+
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   // Bird physics
@@ -38,14 +50,14 @@ function update() {
   ctx.fillRect(birdX, birdY, birdWidth, birdHeight);
 
   // Add new pipes
-  if (frame % 90 === 0) {
+  if (frame % 100 === 0) {
     let pipeTop = Math.random() * (canvas.height - pipeGap - 100) + 50;
     pipes.push({ x: canvas.width, top: pipeTop });
   }
 
   // Draw and move pipes
-  pipes.forEach((pipe, index) => {
-    pipe.x -= 3;
+  pipes.forEach(pipe => {
+    pipe.x -= 2.5;
     ctx.fillStyle = "green";
     ctx.fillRect(pipe.x, 0, pipeWidth, pipe.top);
     ctx.fillRect(pipe.x, pipe.top + pipeGap, pipeWidth, canvas.height);
@@ -77,14 +89,16 @@ function update() {
   ctx.fillStyle = "black";
   ctx.font = "20px Arial";
   ctx.fillText("Score: " + score, 10, 20);
+  ctx.fillText("High Score: " + highScore, 10, 45);
 
   frame++;
   requestAnimationFrame(update);
 }
 
 function gameOver() {
-  alert("Game Over! Final Score: " + score);
-  document.location.reload();
-}
+  gameRunning = false;
 
-update();
+  // Update high score
+  if (score > highScore) {
+    highScore = score;
+    localStorage.setItem("
