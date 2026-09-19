@@ -6,19 +6,21 @@ let birdX = 50;
 let birdY = 150;
 let birdWidth = 30;
 let birdHeight = 30;
-let gravity = 2;
-let lift = -30;
+let gravity = 1.5;
+let lift = -20;
 let velocity = 0;
 
 // Pipes
 let pipes = [];
-let pipeWidth = 50;
-let pipeGap = 120;
+let pipeWidth = 60;
+let pipeGap = 140;
 let frame = 0;
 let score = 0;
 
 // Controls
-document.addEventListener("keydown", flap);
+document.addEventListener("keydown", e => {
+  if (e.code === "Space") flap();
+});
 document.addEventListener("click", flap);
 
 function flap() {
@@ -26,23 +28,24 @@ function flap() {
 }
 
 // Game loop
-function draw() {
+function update() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // Bird
-  velocity += gravity * 0.5;
+  // Bird physics
+  velocity += gravity;
   birdY += velocity;
   ctx.fillStyle = "yellow";
   ctx.fillRect(birdX, birdY, birdWidth, birdHeight);
 
-  // Pipes
+  // Add new pipes
   if (frame % 90 === 0) {
     let pipeTop = Math.random() * (canvas.height - pipeGap - 100) + 50;
     pipes.push({ x: canvas.width, top: pipeTop });
   }
 
+  // Draw and move pipes
   pipes.forEach((pipe, index) => {
-    pipe.x -= 2;
+    pipe.x -= 3;
     ctx.fillStyle = "green";
     ctx.fillRect(pipe.x, 0, pipeWidth, pipe.top);
     ctx.fillRect(pipe.x, pipe.top + pipeGap, pipeWidth, canvas.height);
@@ -53,20 +56,21 @@ function draw() {
       birdX + birdWidth > pipe.x &&
       (birdY < pipe.top || birdY + birdHeight > pipe.top + pipeGap)
     ) {
-      alert("Game Over! Score: " + score);
-      document.location.reload();
+      gameOver();
     }
 
-    // Score
+    // Score when bird passes pipe
     if (pipe.x + pipeWidth === birdX) {
       score++;
     }
   });
 
+  // Remove off-screen pipes
+  pipes = pipes.filter(pipe => pipe.x + pipeWidth > 0);
+
   // Ground/ceiling collision
   if (birdY + birdHeight > canvas.height || birdY < 0) {
-    alert("Game Over! Score: " + score);
-    document.location.reload();
+    gameOver();
   }
 
   // Score display
@@ -75,7 +79,12 @@ function draw() {
   ctx.fillText("Score: " + score, 10, 20);
 
   frame++;
-  requestAnimationFrame(draw);
+  requestAnimationFrame(update);
 }
 
-draw();
+function gameOver() {
+  alert("Game Over! Final Score: " + score);
+  document.location.reload();
+}
+
+update();
