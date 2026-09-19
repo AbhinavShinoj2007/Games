@@ -58,7 +58,7 @@ header a:hover {
 canvas {
   display: block;
   margin: 20px auto;
-  background: linear-gradient(to bottom, #87CEEB, #e0f7fa);
+  background: radial-gradient(circle at bottom, #0f2027, #203a43, #2c5364); /* arcade neon */
   border: 4px solid #000;
   border-radius: 8px;
   box-shadow: 0 0 20px #00ffcc;
