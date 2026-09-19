@@ -44,7 +44,8 @@ function startGame() {
 function update() {
   if (!gameRunning) return;
 
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  // Draw background with stars
+  drawBackground();
 
   // Bird physics
   velocity += gravity;
@@ -91,6 +92,20 @@ function update() {
 
   frame++;
   requestAnimationFrame(update);
+}
+
+function drawBackground() {
+  // Neon gradient background
+  ctx.fillStyle = "#0f2027";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Stars
+  ctx.fillStyle = "#fff";
+  for (let i = 0; i < 30; i++) {
+    let x = Math.random() * canvas.width;
+    let y = Math.random() * canvas.height;
+    ctx.fillRect(x, y, 2, 2);
+  }
 }
 
 function gameOver() {
