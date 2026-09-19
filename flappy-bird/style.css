@@ -45,5 +45,20 @@ canvas {
   border-radius: 8px;
   box-shadow: 0 0 20px #00ffcc;
 }
-
 /* Score styling (drawn in JS) */
+#startBtn {
+  margin: 15px auto;
+  padding: 12px 20px;
+  font-family: 'Press Start 2P', cursive;
+  background: #00ffcc;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+#startBtn:hover {
+  background: #ffdd00;
+  transform: scale(1.05);
+}
+
