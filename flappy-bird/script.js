@@ -6,8 +6,8 @@ let birdX = 50;
 let birdY = 150;
 let birdWidth = 30;
 let birdHeight = 30;
-let gravity = 0.9;
-let lift = -4;
+let gravity = 0.7;
+let lift = -5;
 let velocity = 0;
 
 // Pipes
