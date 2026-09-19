@@ -26,8 +26,18 @@
         <div class="tips"><span>SPACE</span> or <span>TAP</span> to flap</div>
       </div>
       <div class="game-wrap">
-        <div class="score-row"><div><small>SCORE</small><strong id="score">0</strong></div><div><small>BEST</small><strong id="highScore">0</strong></div></div>
-        <div class="canvas-frame"><canvas id="gameCanvas" width="400" height="600" aria-label="Flappy Bird game"></canvas><div class="overlay" id="overlay"><span class="bird-badge">🐦</span><h2 id="overlayTitle">READY TO FLY?</h2><p id="overlayText">Tap, click, or press Space to begin</p></div></div>
+        <div class="score-row">
+          <div><small>SCORE</small><strong id="score">0</strong></div>
+          <div><small>BEST</small><strong id="highScore">0</strong></div>
+        </div>
+        <div class="canvas-frame">
+          <canvas id="gameCanvas" width="560" height="600" aria-label="Flappy Bird game"></canvas>
+          <div class="overlay" id="overlay">
+            <span class="bird-badge">🐦</span>
+            <h2 id="overlayTitle">READY TO FLY?</h2>
+            <p id="overlayText">Tap, click, or press Space to begin</p>
+          </div>
+        </div>
         <button id="startBtn" class="start-button">Start game <b>→</b></button>
       </div>
     </section>
