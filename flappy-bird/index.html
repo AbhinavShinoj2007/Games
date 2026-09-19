@@ -3,29 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flappy Bird</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="flappy.css">
+  <meta name="theme-color" content="#141a35">
+  <title>Skybound | Flappy Bird</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>🐦 Flappy Bird</h1>
-    <p>Tap or press space to fly, dodge the pipes!</p>
-    <a href="../index.html">← Back to Arcade</a>
-  </header>
-
-  <!-- HUD -->
-  <div id="hud">
-    <span id="score">Score: 0</span>
-    <span id="highScore">High Score: 0</span>
-  </div>
-
-  <!-- Game canvas -->
-  <canvas id="gameCanvas" width="400" height="600"></canvas>
-
-  <!-- Start/Restart button -->
-  <button id="startBtn">Start Game</button>
-
+  <div class="sky sky-one"></div><div class="sky sky-two"></div>
+  <main class="page">
+    <header class="topbar">
+      <a class="back-link" href="../index.html">← Arcade</a>
+      <div class="logo"><span>✦</span> SKYBOUND</div>
+      <span class="game-number">GAME 09</span>
+    </header>
+    <section class="hero">
+      <div class="copy">
+        <p class="eyebrow">ENDLESS ARCADE</p>
+        <h1>Find your<br><em>sky.</em></h1>
+        <p class="tagline">Tap to fly. Dodge the pipes.<br>How far can you go?</p>
+        <div class="tips"><span>SPACE</span> or <span>TAP</span> to flap</div>
+      </div>
+      <div class="game-wrap">
+        <div class="score-row"><div><small>SCORE</small><strong id="score">0</strong></div><div><small>BEST</small><strong id="highScore">0</strong></div></div>
+        <div class="canvas-frame"><canvas id="gameCanvas" width="400" height="600" aria-label="Flappy Bird game"></canvas><div class="overlay" id="overlay"><span class="bird-badge">🐦</span><h2 id="overlayTitle">READY TO FLY?</h2><p id="overlayText">Tap, click, or press Space to begin</p></div></div>
+        <button id="startBtn" class="start-button">Start game <b>→</b></button>
+      </div>
+    </section>
+    <footer><span>BUILT FOR HIGH SCORES</span><span>↗ <a href="../index.html">MORE GAMES</a></span></footer>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>
