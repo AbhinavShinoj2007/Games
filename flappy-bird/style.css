@@ -36,6 +36,24 @@ header a:hover {
   color: #ffdd00;
 }
 
+/* HUD */
+#hud {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 10px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1rem;
+  color: #ffdd00;
+}
+
+#hud span {
+  background: rgba(0,0,0,0.6);
+  padding: 8px 12px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px #00ffcc;
+}
+
 /* Game canvas */
 canvas {
   display: block;
@@ -45,7 +63,8 @@ canvas {
   border-radius: 8px;
   box-shadow: 0 0 20px #00ffcc;
 }
-/* Score styling (drawn in JS) */
+
+/* Start/Restart button */
 #startBtn {
   margin: 15px auto;
   padding: 12px 20px;
@@ -55,10 +74,10 @@ canvas {
   border-radius: 8px;
   cursor: pointer;
   display: inline-block;
+  transition: 0.3s;
 }
 
 #startBtn:hover {
   background: #ffdd00;
   transform: scale(1.05);
 }
-
